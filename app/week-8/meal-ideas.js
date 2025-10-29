@@ -21,17 +21,22 @@ useEffect(() => {
   if (ingredient) {
     loadMealIdeas();
   }
+  
 }, [ingredient]);
 
 
   return(
-    <div>
-      <header> <h2>Meals</h2></header>
-      <ul>
-        
+    <div className="justify-self-center my-20 ">
+      <header> <h2 className="text-center font-bold">Meals using {ingredient}</h2></header>
+      <ul className="justify-self-center mr-10">
+         
+      {Array.isArray(meals) && meals.length === 0 && (
+        <li className="text-gray-500">No Meals Found</li>
+      )}
+
         {Array.isArray(meals) &&
           meals.map((meal) => (
-            <li key={meal.idMeal}>{meal.strMeal}</li>
+            <li className="px-3 py-3 border-1 rounded-2xl my-3 mx-6 " key={meal.idMeal}>{meal.strMeal}</li>
           ))}
    
         
@@ -44,9 +49,10 @@ useEffect(() => {
 
 async function fetchMealIdeas(ingredient)
   {
-    alert("Getting Meal Ideas");
+    
       try 
       {
+        
         const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`);
         // alert(response.status)
         if (!response.ok) {

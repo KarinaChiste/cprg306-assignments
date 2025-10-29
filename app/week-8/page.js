@@ -75,8 +75,10 @@ export default function Page(){
           <NewItem onAddItem = {handleAddItem}/>
         < ItemList items = {items} onItemSelect={handleItemSelect}/>
         </div>
-        <MealIdeas ingredient={selectedItemName}/>
-
+        
+        <div >
+          <MealIdeas ingredient={selectedItemName}/>
+        </div>
       </div>
       
            
