@@ -31,14 +31,14 @@ const handleLogout = async () =>{
 </p>; */}
 
 return(
-  <div>
+  <div className="my-10 mx-20">
   {
     user ? (
     <div>
       <p>
         Welcome, {user.displayName} ({user.email})
       </p>
-      <button onClick={handleLogout}>
+      <button onClick={handleLogout} className="border-1 my-1 mx-3 px-5 py-3 rounded-2xl bg-blue-600 text-white">
         Logout
       </button>
       <Link href="/week-9/shopping-list"><br/>Go to Shopping List</Link>
@@ -46,7 +46,7 @@ return(
       
     ) :
     (
-      <button onClick={handleLogin}>
+      <button onClick={handleLogin} className="border-1 my-1 mx-3 px-5 py-3 rounded-2xl bg-blue-600 text-white">
       Login
     </button>
     )
